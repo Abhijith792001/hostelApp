@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hostel/screens/hostel_screen.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(16),
+                          padding: EdgeInsets.all(16.sp),
                           width: 260.w,
                           height: 295.h,
                           // color: Colors.amber,
@@ -49,9 +50,10 @@ class HomeScreen extends StatelessWidget {
                             'Your next student home is just a tap away.',
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                              fontSize: 19.sp,
+                              fontSize: 18.sp,
                               fontFamily: 'ArchitectsDaughter',
                               color: Colors.white,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
@@ -63,11 +65,11 @@ class HomeScreen extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(16.sp),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(42),
-                      topLeft: Radius.circular(42),
+                      topRight: Radius.circular(42.sp),
+                      topLeft: Radius.circular(42.sp),
                     ),
                     gradient: LinearGradient(
                       begin: Alignment(0.50, -0.00),
@@ -92,63 +94,164 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            height: 40.h,
-                            width: Get.width * .75,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(
-                                color: const Color.fromARGB(255, 184, 184, 184),
+                      Container(
+                        margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              height: 34.h,
+                              width: Get.width * .75,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    184,
+                                    184,
+                                    184,
+                                  ),
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(42.sp),
+                                ),
                               ),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(42),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    spacing: 5.sp,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icon(LucideIcons.users, size: 18.sp),
+                                      Text(
+                                        'Two Sharing',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  Icon(LucideIcons.chevronDown, size: 18.sp),
+                                ],
                               ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  spacing: 5,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(LucideIcons.users, size: 20),
-                                    Text(
-                                      'Two Sharing',
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    184,
+                                    184,
+                                    184,
+                                  ),
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(42.sp),
+                                ),
+                              ),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                radius: 20.sp,
+                                child: Icon(LucideIcons.settings2, size: 18.sp),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                          padding: EdgeInsets.zero,
+                          itemCount: 10,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              padding: EdgeInsets.symmetric(vertical: 5.h),
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 1.w,
+                                vertical: 10.h,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(16.sp),
+                                ),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x3F000000),
+                                    blurRadius: 4,
+                                    offset: Offset(0, 0),
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                              ),
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  radius: 22.sp,
+                                  child: Icon(
+                                    LucideIcons.doorOpen,
+                                    color: Color.fromRGBO(164, 18, 63, 1),
+                                  ),
+                                ),
+                                title: SizedBox(
+                                  width: Get.width * 5,
+                                  child: Text(
+                                    'Ashokam',
+                                    style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  'Available Room : 1',
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromRGBO(168, 166, 172, 1),
+                                  ),
+                                ),
+                                trailing: Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 20.w,
+                                    vertical: 9.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8.sp),
+                                    ),
+                                    gradient: LinearGradient(
+                                      begin: Alignment(0.30, 0.56),
+                                      end: Alignment(1.04, 0.08),
+                                      colors: [
+                                        const Color(0xFFA4123F),
+                                        const Color(0xFFD72A5F),
+                                      ],
+                                    ),
+                                  ),
+                                  child: InkWell(
+                                    onTap:()=> Get.to(HostelScreen()),
+                                    child: Text(
+                                      'View',
                                       style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12.sp,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-
-                                Icon(LucideIcons.chevronDown, size: 20),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(
-                                color: const Color.fromARGB(255, 184, 184, 184),
                               ),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(42),
-                              ),
-                            ),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 23,
-                              child: Icon(LucideIcons.settings2,size: 20,),
-                            ),
-                          ),
-                        ],
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -157,9 +260,9 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           Positioned(
-            left: 0,
+            left: -9.w,
             bottom: 420.h,
-            child: Container(
+            child: SizedBox(
               // color: Colors.amber,
               height: 200.h,
               width: 200.w,
