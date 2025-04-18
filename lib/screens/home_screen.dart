@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lucide_icons/lucide_icons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -76,8 +77,79 @@ class HomeScreen extends StatelessWidget {
                   ),
                   height: 450.h,
                   width: Get.width,
-                  child: Column(children: [
-                      Text('data')
+                  child: Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Categories',
+                            style: TextStyle(
+                              fontFamily: 'Itim',
+                              fontSize: 19.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            height: 40.h,
+                            width: Get.width * .75,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 184, 184, 184),
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(42),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  spacing: 5,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(LucideIcons.users, size: 20),
+                                    Text(
+                                      'Two Sharing',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                Icon(LucideIcons.chevronDown, size: 20),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 184, 184, 184),
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(42),
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 23,
+                              child: Icon(LucideIcons.settings2,size: 20,),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
