@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            fontFamily: 'Poppins',
             colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(164, 18, 63, 1))
           ),
           home: HomeScreen(),
