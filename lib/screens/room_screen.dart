@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:hostel/screens/home_screen.dart';
-import 'package:hostel/screens/room_screen.dart';
+import 'package:hostel/screens/hostel_screen.dart';
+import 'package:hostel/screens/order_conform.dart';
+
 import 'package:lucide_icons/lucide_icons.dart';
 
-class HostelScreen extends StatelessWidget {
-  const HostelScreen({super.key});
+class RoomScreen extends StatelessWidget {
+  const RoomScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class HostelScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         elevation: 0,
         leading: InkWell(
-          onTap: () => Get.off(HomeScreen()),
+          onTap: () => Get.off(HostelScreen()),
           child: Row(
             children: [
               Container(
@@ -125,24 +126,115 @@ class HostelScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Select Your rooms',
+                    'Conform Your Room',
                     style: TextStyle(
                       fontSize: 19.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Text(
-                    'Explore and choose your ideal room.',
-                    style: TextStyle(
-                      fontSize: 9.sp,
-                      fontWeight: FontWeight.w600,
+                  // Text(
+                  //   'Explore and choose your ideal room.',
+                  //   style: TextStyle(
+                  //     fontSize: 9.sp,
+                  //     fontWeight: FontWeight.w600,
+                  //   ),
+                  // ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 1.w,
+                      vertical: 10.h,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16.sp)),
+                      // color: Colors.white,
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: Color(0x3F000000),
+                      //     blurRadius: 4,
+                      //     offset: Offset(0, 0),
+                      //     spreadRadius: 0,
+                      //   ),
+                      // ],
+                    ),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 22,
+                        child: Icon(
+                          LucideIcons.doorOpen,
+                          color: Color.fromRGBO(164, 18, 63, 1),
+                        ),
+                      ),
+                      title: SizedBox(
+                        width: Get.width * 5,
+                        child: Text(
+                          'Room ',
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      subtitle: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            LucideIcons.users,
+                            size: 12.sp,
+                            color: Color.fromRGBO(168, 166, 172, 1),
+                          ),
+                          Text(
+                            '2/3',
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromRGBO(168, 166, 172, 1),
+                            ),
+                          ),
+                        ],
+                      ),
+                      trailing: InkWell(
+                        onTap: () => Get.to(OrderConform()),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20.w,
+                            vertical: 9.h,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8.sp),
+                            ),
+                            gradient: LinearGradient(
+                              begin: Alignment(0.30, 0.56),
+                              end: Alignment(1.04, 0.08),
+                              colors: [
+                                const Color(0xFFA4123F),
+                                const Color(0xFFD72A5F),
+                              ],
+                            ),
+                          ),
+                          child: Text(
+                            'Book Now',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Room Mates',style: TextStyle(fontWeight: FontWeight.w600),),
+                    ],
+                  ),
                   Expanded(
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
-                      itemCount: 10,
+                      itemCount: 2,
                       itemBuilder: (BuildContext context, int index) {
                         var roomIndex = index + 1;
                         return Container(
@@ -176,57 +268,22 @@ class HostelScreen extends StatelessWidget {
                             title: SizedBox(
                               width: Get.width * 5,
                               child: Text(
-                                'Room $roomIndex',
+                                'Abhijith $roomIndex',
                                 style: TextStyle(
                                   fontSize: 15.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
-                            subtitle: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Icon(LucideIcons.users, size: 12.sp,color:Color.fromRGBO(168, 166, 172, 1),),
-                                Text(
-                                  '2/3',
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color.fromRGBO(168, 166, 172, 1),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            trailing: InkWell(
-                              onTap: () => Get.to(RoomScreen()),
-                              child: Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 20.w,
-                                  vertical: 9.h,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(8.sp),
-                                  ),
-                                  gradient: LinearGradient(
-                                    begin: Alignment(0.30, 0.56),
-                                    end: Alignment(1.04, 0.08),
-                                    colors: [
-                                      const Color(0xFFA4123F),
-                                      const Color(0xFFD72A5F),
-                                    ],
-                                  ),
-                                ),
-                                child: Text(
-                                  'View',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
+                            subtitle: Text(
+                              'AA.SC.U3BCA2401014$index',
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromRGBO(168, 166, 172, 1),
                               ),
                             ),
+                           
                           ),
                         );
                       },

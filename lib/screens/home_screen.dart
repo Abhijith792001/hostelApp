@@ -218,26 +218,26 @@ class HomeScreen extends StatelessWidget {
                                     color: Color.fromRGBO(168, 166, 172, 1),
                                   ),
                                 ),
-                                trailing: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 20.w,
-                                    vertical: 9.h,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(8.sp),
+                                trailing: InkWell(
+                                  onTap: ()=>Get.to(HostelScreen()),
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 20.w,
+                                      vertical: 9.h,
                                     ),
-                                    gradient: LinearGradient(
-                                      begin: Alignment(0.30, 0.56),
-                                      end: Alignment(1.04, 0.08),
-                                      colors: [
-                                        const Color(0xFFA4123F),
-                                        const Color(0xFFD72A5F),
-                                      ],
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(8.sp),
+                                      ),
+                                      gradient: LinearGradient(
+                                        begin: Alignment(0.30, 0.56),
+                                        end: Alignment(1.04, 0.08),
+                                        colors: [
+                                          const Color(0xFFA4123F),
+                                          const Color(0xFFD72A5F),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  child: InkWell(
-                                    onTap:()=> Get.to(HostelScreen()),
                                     child: Text(
                                       'View',
                                       style: TextStyle(
