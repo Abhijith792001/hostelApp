@@ -46,14 +46,17 @@ class HomeScreen extends StatelessWidget {
                           width: 260.w,
                           height: 295.h,
                           // color: Colors.amber,
-                          child: Text(
-                            'Your next student home is just a tap away.',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: 'ArchitectsDaughter',
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                          child: InkWell(
+                            onTap: ()=> Get.toNamed('/notification'),
+                            child: Text(
+                              'Your next student home is just a tap away.',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                fontFamily: 'ArchitectsDaughter',
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
